@@ -5,8 +5,8 @@ from web3 import Web3
 
 endpoint = input("Enter your RPC endpoint: ")   # https://foo.bar
 web3 = Web3(web3.HTTPProvider(endpoint))
-address = input('Enter your address: ')   # 0x.....
-idle = [1, 2, 3]
+address = input("Enter your address: ")   # 0x.....
+idle = [1, 2]
 
 
 def get_balance(_address, _time):
