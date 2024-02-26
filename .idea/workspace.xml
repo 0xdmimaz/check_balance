@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558b3f8c-9671-4124-8877-95718b8e355b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/check_mm_balance.py" beforeDir="false" afterPath="$PROJECT_DIR$/check_mm_balance.py" afterDir="false" />
     </list>
@@ -66,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708445288305</updated>
-      <workItem from="1708445291072" duration="22702000" />
+      <workItem from="1708445291072" duration="31933000" />
     </task>
     <servers />
   </component>
@@ -74,6 +75,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/check_metamask_balance$check_mm_balance.coverage" NAME="check_mm_balance Coverage Results" MODIFIED="1708449901223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/check_metamask_balance$check_mm_balance.coverage" NAME="check_mm_balance Coverage Results" MODIFIED="1708978306814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
