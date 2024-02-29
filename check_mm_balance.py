@@ -1,14 +1,14 @@
 import time
+import json
 import random
 from datetime import datetime
 import web3
 from web3 import Web3
 
-endpoint = input('Enter your RPC endpoint: ')   # https://foo.bar
-web3 = Web3(web3.HTTPProvider(endpoint))
-address = input('Enter your address: ')   # 0x.....
-repeat_count = int(input('Enter your repeat count: '))   # 10
-idle = [1, 2, 3, 4, 5]
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
+
+web3 = Web3(web3.HTTPProvider(config["endpoint"]))
 
 
 def get_balance(_address, _time):
@@ -18,8 +18,8 @@ def get_balance(_address, _time):
     return random_idle, balance
 
 
-for i in range(repeat_count):
-    random_idle, balance = get_balance(address, idle)
+for i in range(config["repeats"]):
+    wait_time, wallet_balance = get_balance(config["address"], config["idle"])
     dt = datetime.now()
-    log_str = f"{i} - {dt} - {endpoint} - {address} - {random_idle} - {balance}"
+    log_str = f"{i} - {dt} - {config['endpoint']} - {config['address']} - {wait_time} - {wallet_balance}"
     print(f"{log_str}")

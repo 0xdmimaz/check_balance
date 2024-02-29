@@ -1,0 +1,6 @@
+{
+  "endpoint": "https://eth1.lava.build/lava-referer-8b1364ea-0d54-40ff-a502-9d7be24e7c9d/",
+  "address": "0xC325540Fa3924829156c9C80103aD8531dFf78CB",
+  "repeats": 1000000,
+  "idle": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
