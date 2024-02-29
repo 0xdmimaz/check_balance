@@ -8,8 +8,7 @@ endpoint = input('Enter your RPC endpoint: ')   # https://foo.bar
 web3 = Web3(web3.HTTPProvider(endpoint))
 address = input('Enter your address: ')   # 0x.....
 repeat_count = int(input('Enter your repeat count: '))   # 10
-idle = [1, 2]
-file = open('log.txt', 'a')
+idle = [1, 2, 3, 4, 5]
 
 
 def get_balance(_address, _time):
@@ -23,7 +22,4 @@ for i in range(repeat_count):
     random_idle, balance = get_balance(address, idle)
     dt = datetime.now()
     log_str = f"{i} - {dt} - {endpoint} - {address} - {random_idle} - {balance}"
-    file.write(f"{log_str} \n")
     print(f"{log_str}")
-
-file.close()
