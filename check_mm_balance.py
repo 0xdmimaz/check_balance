@@ -4,6 +4,7 @@ import random
 from datetime import datetime
 import web3
 from web3 import Web3
+from requests.exceptions import ReadTimeout, HTTPError
 
 with open('config.json', 'r') as config_file:
     config = json.load(config_file)
@@ -19,7 +20,14 @@ def get_balance(_address, _time):
 
 
 for i in range(config["repeats"]):
-    wait_time, wallet_balance = get_balance(config["address"], config["idle"])
-    dt = datetime.now()
-    log_str = f"{i} - {dt} - {config['endpoint']} - {config['address']} - {wait_time} - {wallet_balance}"
-    print(f"{log_str}")
+    try:
+        wait_time, wallet_balance = get_balance(config["address"], config["idle"])
+        dt = datetime.now()
+        log_str = f"{i} - {dt} - {config['endpoint']} - {config['address']} - {wait_time} - {wallet_balance}"
+        print(f"{log_str}")
+
+    except ReadTimeout as err:
+        print(f"{dt} - {err}")
+
+    except HTTPError as err:
+        print(f"{dt} - {err}")
