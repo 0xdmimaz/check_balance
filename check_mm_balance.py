@@ -10,6 +10,7 @@ with open('config.json', 'r') as config_file:
     config = json.load(config_file)
 
 web3 = Web3(web3.HTTPProvider(config["endpoint"]))
+dt = datetime.now()
 
 
 def get_balance(_address, _time):
@@ -22,7 +23,6 @@ def get_balance(_address, _time):
 for i in range(config["repeats"]):
     try:
         wait_time, wallet_balance = get_balance(config["address"], config["idle"])
-        dt = datetime.now()
         log_str = f"{i} - {dt} - {config['endpoint']} - {config['address']} - {wait_time} - {wallet_balance}"
         print(f"{log_str}")
 
@@ -30,4 +30,7 @@ for i in range(config["repeats"]):
         print(f"{dt} - {err}")
 
     except HTTPError as err:
+        print(f"{dt} - {err}")
+
+    except ValueError as err:
         print(f"{dt} - {err}")
