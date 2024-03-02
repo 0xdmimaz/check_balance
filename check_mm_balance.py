@@ -20,6 +20,10 @@ def get_balance(_address, _time):
     return random_idle, balance
 
 
+def print_error(timestamp, error):
+    print(f"{timestamp} - {error}")
+
+
 for i in range(config["repeats"]):
     try:
         wait_time, wallet_balance = get_balance(config["address"], config["idle"])
@@ -27,10 +31,10 @@ for i in range(config["repeats"]):
         print(f"{log_str}")
 
     except ReadTimeout as err:
-        print(f"{current_time} - {err}")
+        print_error(current_time, err)
 
     except HTTPError as err:
-        print(f"{current_time} - {err}")
+        print_error(current_time, err)
 
     except ValueError as err:
-        print(f"{current_time} - {err}")
+        print_error(current_time, err)
