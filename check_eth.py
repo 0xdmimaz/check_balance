@@ -1,12 +1,11 @@
-import time
-import random
+import time, random, web3
 from datetime import datetime
-import web3
 from web3 import Web3
 from requests.exceptions import ReadTimeout, HTTPError, ChunkedEncodingError, ConnectionError
 from urllib3.exceptions import ProtocolError
 from processing_json import config
 # from logic_common import web3, current_time
+from memory_profiler import memory_usage
 
 endpoint = config["network"]["eth"]["endpoint"]
 address = config["network"]["eth"]["address"]
@@ -37,6 +36,7 @@ for i in range(repeats):
         wait_time, wallet_balance = get_balance(address, idle)
         log_str = f"{i} - {current_time} - {wait_time} - {wallet_balance}"
         print(f"{log_str}")
+        print(memory_usage())
 
     except ReadTimeout as err:
         print_error(i, current_time, err)
