@@ -4,19 +4,19 @@
         "endpoint": "https://eth1.lava.build/lava-referer-8b1364ea-0d54-40ff-a502-9d7be24e7c9d/",
         "address": "0xC325540Fa3924829156c9C80103aD8531dFf78CB",
         "repeats": 1000000,
-        "idle": [1, 2]
+        "idle": [30, 31, 32]
     },
     "near-main": {
         "endpoint": "https://eth1.lava.build/lava-referer-8b1364ea-0d54-40ff-a502-9d7be24e7c9d/",
         "address": "0xC325540Fa3924829156c9C80103aD8531dFf78CB",
         "repeats": 1000000,
-        "idle": [1, 2]
+        "idle": [30, 31, 32]
     },
     "near-test": {
         "endpoint": "https://eth1.lava.build/lava-referer-8b1364ea-0d54-40ff-a502-9d7be24e7c9d/",
         "address": "0xC325540Fa3924829156c9C80103aD8531dFf78CB",
         "repeats": 1000000,
-        "idle": [1, 2]
+        "idle": [30, 31, 32]
     }
   }
 }

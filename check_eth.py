@@ -1,11 +1,11 @@
-import time, random, web3
+import time
+import random
+import web3
 from datetime import datetime
 from web3 import Web3
 from requests.exceptions import ReadTimeout, HTTPError, ChunkedEncodingError, ConnectionError
 from urllib3.exceptions import ProtocolError
 from processing_json import config
-# from logic_common import web3, current_time
-from memory_profiler import memory_usage
 
 endpoint = config["network"]["eth"]["endpoint"]
 address = config["network"]["eth"]["address"]
@@ -27,16 +27,17 @@ def print_error(iteration, timestamp, error):
     log_file = open("logs/errors_eth.log", "a")
     log_file.write(f"{iteration} - {timestamp} - {error} \n")
     log_file.close()
-    # print(f"{iteration} - {timestamp} - {error}")
-    print(f"{iteration} - {timestamp} - ERROR - {error.response}")
+    if error == ValueError or error == ProtocolError:
+        print(f"{iteration} - {timestamp} - ERROR - {error}")
+    else:
+        print(f"{iteration} - {timestamp} - ERROR - {error}")
 
 
-for i in range(repeats):
+for i in range(1, repeats):
     try:
         wait_time, wallet_balance = get_balance(address, idle)
         log_str = f"{i} - {current_time} - {wait_time} - {wallet_balance}"
         print(f"{log_str}")
-        print(memory_usage())
 
     except ReadTimeout as err:
         print_error(i, current_time, err)
